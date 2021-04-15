@@ -15,18 +15,14 @@
 <script>
 export default {
     name:"HomeSwiper",
+    props:{swiperlist:Array},
     data (){
         return{
             swiperOption:{
               pagination:'.swiper-pagination',
               loop:true,
              autoplay:3000
-            },
-            swiperlist:[
-            {id:"0001",imgUrl:"http://img1.qunarzz.com/sight/source/1505/a2/78e4dbcfd45a6d.jpg_r_640x214_7a62b06a.jpg"},
-            {id:"0002",imgUrl:"http://img1.qunarzz.com/sight/source/1811/65/7322301be0a92c.jpg_r_640x214_a3485c55.jpg"},
-            {id:"0003",imgUrl:"http://img1.qunarzz.com/sight/source/1505/63/0ffcb5c329a19c.jpg_r_640x214_93fd1e5a.jpg"}]
-        }
+            }}
     }
 }
 </script>

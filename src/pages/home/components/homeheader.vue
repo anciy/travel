@@ -6,14 +6,17 @@
             <div class="searchmessge">输入城市/景点/游玩主题</div>
         </div>
         <div class="iconchengdu">
-            <span class="messge">成都</span>
+            <span class="messge">{{this.city}}</span>
             <span class="iconfont">&#xe750;</span>
         </div>
     </div>
 </template>
 <script>
 export default {
-    name:"HomeHeader"
+    name:"HomeHeader",
+    props:{
+        city:String
+    }
 }
 </script>
 <style scoped>
