@@ -3,11 +3,13 @@
         <div class="iconfont icon">&#xe743;</div>
         <div class="search">
             <div class="iconfont" style="color:#dcdcdc;width:35px">&#xe76c;</div>
-            <div class="searchmessge">输入城市/景点/游玩主题</div>
+           <div class="searchmessge">输入城市/景点/游玩主题</div>
         </div>
         <div class="iconchengdu">
+            <router-link to="/city" class="messge">
             <span class="messge">{{this.city}}</span>
             <span class="iconfont">&#xe750;</span>
+            </router-link>
         </div>
     </div>
 </template>
@@ -60,5 +62,7 @@ export default {
  }
  .messge{
      font-size: 14px;
+     text-decoration: none;
+     color: #fff;
  }
 </style>
