@@ -2,7 +2,7 @@
 <div style="background:	#F5F5F5;">
     <div class="messg1">热门城市</div>
     <div class="container">
-        <div v-for="item of hotcitylist" :key="item.id">{{item.cityname}}</div>
+        <div v-for="item of hotcitylist" :key="item.id" @click="handleClick(item.cityname)">{{item.cityname}}</div>
     </div>
     <div class="messg1">字母排序</div>
     <div class="content">
@@ -37,6 +37,13 @@ export default {
             hotcitylist:[],
             hotapllist:[],
             citylist:[]
+        }
+    },
+    methods:{
+        handleClick(city){
+            this.$store.commit("changCity",city)
+           //不需要转发直接调用conmmit    this.$store.dispatch("changCity",city)
+            this.$router.push('/')
         }
     },
     watch:{

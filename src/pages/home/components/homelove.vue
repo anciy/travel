@@ -1,7 +1,7 @@
 <template>
     <div style="background:	#F5F5F5;">
         <div class="head"><span class="iconfont" style="color:red;width:15px">&#xe621;</span>猜你喜欢</div>
-        <div v-for="item of lovelist" :key="item.id">
+        <router-link tag="div" v-for="item of lovelist" :key="item.id" :to="'/detail/'+item.id">
             <div class="container">
                 <div style="width:105px;height:105px;position: relative;"><img  :src="item.urlimg"/><div class="expl">随买随用</div></div>
                 <div style="width:235px;height:105px;display:flex;flex-direction:column;justify-content: space-around;">
@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="bottom">{{item.text}}</div>
-        </div>
+        </router-link>
     </div>
 </template>
 <script>

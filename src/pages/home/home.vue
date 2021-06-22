@@ -1,6 +1,6 @@
 <template>
 <div>
-    <home-header :city="city"></home-header>
+    <home-header></home-header>
     <home-swiper :swiperlist="swiperlist"></home-swiper>
     <home-hot :hotlist="hotlist"></home-hot>
     <home-love :lovelist="lovelist"></home-love>
@@ -16,6 +16,7 @@ import HomeLove from './components/homelove'
 import HomeWeek from './components/homeweek'
 import HomeBottom from './components/homebottom'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
  name:"Home",
  components:{
@@ -28,18 +29,20 @@ export default {
  },
  data (){
      return{
-         city:" ",
+         lastcity:'',
          hotlist:[],
          lovelist:[],
          swiperlist:[],
          weeklist:[]
      }
  },
+ computed:{
+     ...mapState(['city'])
+ },
  methods:{
      getHomeData (){
-         axios.get("/static/imooc.json").then((res)=>{
+         axios.get("/static/imooc.json?city="+this.city).then((res)=>{
              res=res.data.data
-             this.city=res.city;
              this.hotlist=res.hotlist;
              this.lovelist=res.lovelist;
              this.swiperlist=res.swiperlist;
@@ -47,8 +50,16 @@ export default {
          })
      }
  },
+ activated(){
+     if(this.lastcity!=this.city){
+         this.lastcity=this.city
+         this.getHomeData()
+     }
+ },
+
  mounted (){
-     this.getHomeData()
+     this.getHomeData();
+     this.lastcity=this.city
  }   
 }
 
